@@ -36,6 +36,8 @@ rating on any line or the transformer) is first crossed.
 voltage** — a four-line backbone trunk (bus chain 1→31→7→20→14) exceeds
 100% loading before voltage gets anywhere near its ceiling.
 
+![Hosting capacity sweep — voltage and loading vs. installed PV](hosting_capacity_sweep.png)
+
 **Phase 3 — Reinforcement** (`phase3_reinforcement.py`,
 `phase3b_parallel_line.py`). Programmatically identify the overloaded
 lines from Phase 2, then test two realistic, off-the-shelf reinforcement
@@ -53,6 +55,8 @@ weakest link rather than disappearing. A full fix would mean reinforcing
 the whole trunk from the transformer outward, not one segment at a time;
 that wasn't pursued further here, since the cascade pattern itself was the
 useful finding, not chasing an ever-larger reinforcement scope.
+
+![Phase 3 reinforcement comparison — before vs after](phase3_reinforcement_comparison.png)
 
 **Phase 4 — Multi-scenario sweep** (`phase4_multi_scenario.py`). Phases
 1–3 all used one arbitrary default snapshot. Real studies test SimBench's
@@ -74,6 +78,8 @@ worst-case condition for hosting capacity studies, and it gives the lowest
 still trips before the voltage ceiling (voltage only reaches 1.10 pu around
 13 kWp on the same trajectory) — this specific feeder is thermally-, not
 voltage-, constrained across every scenario tested.
+
+![Phase 4 scenario summary — hosting capacity by loadcase](phase4_scenario_summary.png)
 
 ## Phase 5 - Medium-voltage grid study: load flow, short circuit, N-1
 
@@ -134,6 +140,8 @@ with.
 
 Outputs: `phase5a_loadflow.csv`, `phase5b_short_circuit.csv`,
 `phase5c_n1_contingency.csv`, `phase5_mv_summary.png`.
+
+![Phase 5 MV summary — load flow, short circuit, N-1](phase5_mv_summary.png)
 
 ## Headline result
 
