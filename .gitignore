@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Large regenerable artifact (rebuilt by phase1_baseline.py)
+baseline_net.json

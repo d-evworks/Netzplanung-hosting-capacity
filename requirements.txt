@@ -1,0 +1,5 @@
+pandapower>=3.0
+simbench>=1.6
+pandas>=2.0
+matplotlib>=3.8
+numba>=0.59

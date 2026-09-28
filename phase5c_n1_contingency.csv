@@ -1,0 +1,122 @@
+line,line_name,lost_load_buses,lost_load_mw,outcome,tie_closed,v_min,v_max,line_max,trafo_max
+0,MV2.101 Line 1,22,7.427,restorable only with limit violation,237,0.858,1.007,164.452,43.973
+1,MV2.101 Line 2,21,6.986,restorable only with limit violation,243,0.835,1.007,155.118,43.91
+2,MV2.101 Line 3,20,6.577,restorable only with limit violation,243,0.849,1.007,146.693,43.64
+3,MV2.101 Line 4,19,6.168,restorable only with limit violation,243,0.863,1.008,138.582,43.402
+4,MV2.101 Line 5,18,5.925,restorable only with limit violation,243,0.871,1.008,133.92,43.275
+5,MV2.101 Line 6,17,5.682,restorable only with limit violation,243,0.878,1.008,130.217,43.157
+6,MV2.101 Line 7,16,5.273,restorable only with limit violation,237,0.893,1.008,123.337,43.056
+7,MV2.101 Line 8,15,5.071,restorable only with limit violation,237,0.896,1.008,119.721,42.987
+8,MV2.101 Line 9,14,4.828,restorable only with limit violation,237,0.9,1.008,115.412,42.915
+9,MV2.101 Line 10,13,4.497,restorable only with limit violation,237,0.905,1.008,110.193,42.821
+10,MV2.101 Line 11,12,4.254,restorable only with limit violation,243,0.916,1.008,110.553,42.631
+11,MV2.101 Line 12,11,3.845,restorable only with limit violation,243,0.926,1.008,105.196,42.522
+12,MV2.101 Line 13,10,3.436,restored by switching,239,0.938,1.008,99.034,42.481
+13,MV2.101 Line 14,9,3.027,restored by switching,239,0.943,1.008,92.212,42.418
+14,MV2.101 Line 15,8,2.618,restored by switching,239,0.948,1.008,85.485,42.365
+15,MV2.101 Line 16,7,2.209,restored by switching,239,0.953,1.008,78.833,42.322
+16,MV2.101 Line 17,6,1.966,restored by switching,239,0.956,1.008,74.948,42.305
+17,MV2.101 Line 18,5,1.723,restored by switching,239,0.959,1.008,71.106,42.291
+18,MV2.101 Line 19,4,1.314,restored by switching,243,0.977,1.009,75.469,42.224
+19,MV2.101 Line 20,3,0.905,restored by switching,243,0.975,1.009,80.791,42.228
+20,MV2.101 Line 21,2,0.662,restored by switching,243,0.971,1.009,83.977,42.237
+21,MV2.101 Line 22,1,0.331,restored by switching,243,0.966,1.009,88.36,42.257
+22,MV2.101 Line 23,12,3.016,restored by switching,245,0.957,1.008,93.878,42.526
+23,MV2.101 Line 24,11,2.773,restored by switching,245,0.96,1.008,92.816,42.493
+24,MV2.101 Line 25,10,2.53,restored by switching,245,0.96,1.008,92.813,42.458
+25,MV2.101 Line 26,9,2.287,restored by switching,245,0.96,1.008,92.81,42.426
+26,MV2.101 Line 27,8,1.956,restored by switching,245,0.96,1.008,92.814,42.407
+27,MV2.101 Line 28,7,1.754,restored by switching,245,0.96,1.008,92.809,42.381
+28,MV2.101 Line 29,6,1.552,restored by switching,245,0.96,1.008,92.809,42.368
+29,MV2.101 Line 30,5,1.221,restored by switching,245,0.96,1.008,92.802,42.331
+30,MV2.101 Line 31,4,0.978,restored by switching,245,0.96,1.009,92.8,42.315
+31,MV2.101 Line 32,3,0.735,restored by switching,245,0.96,1.009,92.8,42.306
+32,MV2.101 Line 33,2,0.404,restored by switching,245,0.96,1.009,92.799,42.295
+33,MV2.101 Line 34,1,0.202,restored by switching,245,0.96,1.009,92.799,42.291
+34,MV2.101 Line 35,11,2.603,restored by switching,247,0.96,1.008,92.809,42.412
+35,MV2.101 Line 36,10,2.401,restored by switching,247,0.96,1.008,92.807,42.393
+36,MV2.101 Line 37,9,2.199,restored by switching,247,0.96,1.008,92.806,42.378
+37,MV2.101 Line 38,8,1.997,restored by switching,247,0.96,1.008,92.805,42.363
+38,MV2.101 Line 39,6,1.552,restored by switching,247,0.96,1.008,92.803,42.338
+39,MV2.101 Line 40,5,1.309,restored by switching,247,0.96,1.009,92.8,42.32
+40,MV2.101 Line 41,3,0.776,restored by switching,247,0.96,1.009,92.799,42.3
+41,MV2.101 Line 42,2,0.533,restored by switching,247,0.96,1.009,92.798,42.294
+42,MV2.101 Line 43,1,0.202,restored by switching,247,0.96,1.009,92.798,42.289
+43,MV2.101 Line 44,1,0.243,no alternative path (spur line),none,,,,
+44,MV2.101 Line 45,1,0.202,no alternative path (spur line),none,,,,
+45,MV2.101 Line 46,12,2.881,restored by switching,235,0.931,1.008,92.842,42.721
+46,MV2.101 Line 47,11,2.638,restored by switching,235,0.936,1.008,92.836,42.663
+47,MV2.101 Line 48,10,2.395,restored by switching,235,0.94,1.008,92.832,42.611
+48,MV2.101 Line 49,9,2.152,restored by switching,235,0.945,1.008,92.827,42.56
+49,MV2.101 Line 50,8,1.909,restored by switching,235,0.95,1.008,92.822,42.513
+50,MV2.101 Line 51,4,0.849,restored by switching,233,0.96,1.009,92.801,42.3
+51,MV2.101 Line 52,3,0.647,restored by switching,233,0.96,1.008,92.801,42.298
+52,MV2.101 Line 53,2,0.445,restored by switching,233,0.96,1.009,92.799,42.292
+53,MV2.101 Line 54,1,0.243,restored by switching,233,0.96,1.009,92.8,42.292
+54,MV2.101 Line 55,3,0.817,restored by switching,233,0.96,1.009,92.8,42.299
+55,MV2.101 Line 56,2,0.486,restored by switching,233,0.96,1.009,92.8,42.295
+56,MV2.101 Line 57,1,0.243,restored by switching,233,0.96,1.008,92.804,42.304
+57,MV2.101 Line 58,0,0.0,no interruption,-,0.96,1.008,92.805,42.305
+58,MV2.101 Line 59,8,1.383,restored by switching,241,0.96,1.008,92.805,42.322
+59,MV2.101 Line 60,7,1.14,restored by switching,241,0.96,1.009,92.8,42.305
+60,MV2.101 Line 61,3,0.362,restored by switching,241,0.96,1.009,92.8,42.293
+61,MV2.101 Line 62,2,0.16,restored by switching,241,0.96,1.009,92.799,42.29
+62,MV2.101 Line 63,1,0.08,restored by switching,241,0.96,1.008,92.802,42.297
+63,MV2.101 Line 64,2,0.282,no alternative path (spur line),none,,,,
+64,MV2.101 Line 65,1,0.202,no alternative path (spur line),none,,,,
+65,MV2.101 Line 66,1,0.165,no alternative path (spur line),none,,,,
+66,MV2.101 Line 67,6,1.596,restored by switching,241,0.96,1.009,92.801,42.317
+67,MV2.101 Line 68,5,1.187,restored by switching,241,0.96,1.009,92.801,42.307
+68,MV2.101 Line 69,4,0.944,restored by switching,241,0.96,1.008,92.802,42.306
+69,MV2.101 Line 70,3,0.613,restored by switching,241,0.96,1.009,92.799,42.293
+70,MV2.101 Line 71,2,0.282,restored by switching,241,0.96,1.008,92.804,42.303
+71,MV2.101 Line 72,1,0.202,restored by switching,241,0.96,1.009,92.799,42.291
+72,MV2.101 Line 73,11,2.976,restorable only with limit violation,239,0.927,1.008,135.435,42.75
+73,MV2.101 Line 74,10,2.774,restorable only with limit violation,239,0.931,1.008,132.094,42.699
+74,MV2.101 Line 75,9,2.572,restorable only with limit violation,239,0.935,1.008,128.784,42.651
+75,MV2.101 Line 76,8,2.37,restorable only with limit violation,239,0.937,1.008,125.517,42.608
+76,MV2.101 Line 77,7,2.127,restorable only with limit violation,239,0.939,1.008,121.616,42.558
+77,MV2.101 Line 78,6,1.718,restorable only with limit violation,239,0.943,1.008,115.887,42.484
+78,MV2.101 Line 79,5,1.309,restorable only with limit violation,239,0.947,1.008,110.313,42.426
+79,MV2.101 Line 80,4,1.107,restorable only with limit violation,239,0.949,1.008,107.645,42.401
+80,MV2.101 Line 81,3,0.905,restorable only with limit violation,239,0.951,1.008,104.913,42.367
+81,MV2.101 Line 82,2,0.574,restorable only with limit violation,239,0.955,1.009,100.463,42.333
+82,MV2.101 Line 83,1,0.243,restored by switching,239,0.958,1.009,96.041,42.305
+83,MV2.101 Line 84,14,5.496,restorable only with limit violation,245,0.913,1.008,116.233,43.067
+84,MV2.101 Line 85,13,5.055,restorable only with limit violation,245,0.922,1.008,108.744,42.937
+85,MV2.101 Line 86,12,4.646,restorable only with limit violation,245,0.93,1.008,101.947,42.829
+86,MV2.101 Line 87,11,4.237,restored by switching,245,0.937,1.008,95.26,42.73
+87,MV2.101 Line 88,10,3.828,restored by switching,245,0.944,1.008,92.824,42.644
+88,MV2.101 Line 89,9,3.419,restored by switching,245,0.951,1.008,92.818,42.567
+89,MV2.101 Line 90,8,2.775,restored by switching,245,0.96,1.008,92.811,42.466
+90,MV2.101 Line 91,7,2.366,restored by switching,245,0.96,1.008,92.808,42.417
+91,MV2.101 Line 92,6,2.123,restored by switching,245,0.96,1.008,92.809,42.398
+92,MV2.101 Line 93,5,1.714,restored by switching,245,0.96,1.008,92.805,42.357
+93,MV2.101 Line 94,4,1.471,restored by switching,245,0.96,1.008,92.807,42.348
+94,MV2.101 Line 95,3,1.228,restored by switching,245,0.96,1.008,92.805,42.332
+95,MV2.101 Line 96,2,0.574,restored by switching,245,0.96,1.009,92.8,42.297
+96,MV2.101 Line 97,0,0.0,no interruption,-,0.96,1.009,92.801,42.295
+97,MV2.101 Line 98,1,0.331,restored by switching,243,0.954,1.008,97.299,42.33
+98,MV2.101 Line 99,15,3.922,restored by switching,235,0.953,1.008,96.829,42.49
+99,MV2.101 Line 100,14,3.513,restored by switching,235,0.96,1.008,92.807,42.425
+100,MV2.101 Line 101,13,3.27,restored by switching,235,0.96,1.008,92.805,42.394
+101,MV2.101 Line 102,12,3.027,restored by switching,235,0.96,1.008,92.803,42.365
+102,MV2.101 Line 103,11,2.618,restored by switching,235,0.96,1.009,92.8,42.326
+103,MV2.101 Line 104,10,2.375,restored by switching,235,0.96,1.009,92.797,42.302
+104,MV2.101 Line 105,9,2.165,restored by switching,235,0.96,1.009,92.796,42.289
+105,MV2.101 Line 106,8,1.963,restored by switching,235,0.96,1.009,92.795,42.278
+106,MV2.101 Line 107,7,1.761,restored by switching,235,0.96,1.009,92.794,42.269
+107,MV2.101 Line 108,6,1.518,restored by switching,235,0.96,1.009,92.794,42.261
+108,MV2.101 Line 109,5,1.187,restored by switching,235,0.96,1.009,92.795,42.26
+109,MV2.101 Line 110,4,0.944,restored by switching,235,0.96,1.009,92.795,42.259
+110,MV2.101 Line 111,3,0.742,restored by switching,235,0.96,1.009,92.795,42.261
+111,MV2.101 Line 112,2,0.662,restored by switching,235,0.96,1.009,92.796,42.263
+112,MV2.101 Line 113,1,0.331,restored by switching,235,0.96,1.009,92.798,42.275
+113,MV2.101 loop_line 1,0,0.0,no interruption,-,0.96,1.009,92.799,42.291
+114,MV2.101 loop_line 2,0,0.0,no interruption,-,0.96,1.008,92.803,42.301
+115,MV2.101 loop_line 3,0,0.0,no interruption,-,0.96,1.009,92.8,42.293
+116,MV2.101 loop_line 4,0,0.0,no interruption,-,0.96,1.009,92.823,42.289
+117,MV2.101 loop_line 5,0,0.0,no interruption,-,0.96,1.009,92.799,42.289
+118,MV2.101 loop_line 6,0,0.0,no interruption,-,0.96,1.009,92.798,42.287
+119,MV2.101 loop_line 7,0,0.0,no interruption,-,0.96,1.009,92.799,42.29
+120,MV2.101 loop_line 8,0,0.0,no interruption,-,0.96,1.009,92.799,42.29

@@ -1,0 +1,7 @@
+loadcase,hosting_capacity_kwp,binding_constraint
+hL,>25,none found in range
+n1,>25,none found in range
+hW,13,thermal
+hPV,11,thermal
+lW,9,thermal
+lPV,8,thermal

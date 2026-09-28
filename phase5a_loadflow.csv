@@ -1,0 +1,4 @@
+case,v_min,v_max,line_max,trafo_max,violation
+hL,0.96,1.009,92.797,42.286,False
+hPV,0.997,1.021,39.331,18.301,False
+lPV,1.014,1.05,56.92,23.4,False
