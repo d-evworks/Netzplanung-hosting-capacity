@@ -13,8 +13,9 @@ Why this phase exists:
   level. All three are done here with free tools (pandapower + SimBench),
   replicating what PowerFactory is normally used for:
 
-  5a Load flow in the two bounding SimBench loadcases (hL = peak load,
-     lPV = light load + peak PV) -> voltage band and thermal loading.
+  5a Load flow in three SimBench loadcases (hL = peak load, hPV = peak
+     load + PV, lPV = light load + peak PV) -> voltage band and thermal
+     loading.
   5b Short-circuit calculation to IEC 60909 (max and min, 3-phase) at every
      20 kV bus -> needed for equipment rating (max) and protection
      settings (min).
@@ -23,7 +24,7 @@ Why this phase exists:
      normally-open tie switches for one that restores all load without
      creating a new voltage or thermal violation (Wiederversorgung).
 
-Limits used (typical DSO planning values - state them in any writeup):
+Limits used (typical DSO planning values):
   voltage band 0.90-1.10 pu, 100 % thermal loading.
 
 Assumptions (the SimBench file does not include short-circuit data for the

@@ -8,7 +8,7 @@ Code chosen: 1-LV-semiurb4--0-sw
               commercial load - realistic mid-stress feeder)
   --0      -> scenario 0 = "present" (today's grid, not a future projection)
   -sw      -> includes the switch/ring topology (normally-open tie switches),
-              which we'll want later for the restoration study
+              needed later for restoration studies
 """
 import pandapower as pp
 import simbench as sb
@@ -30,8 +30,7 @@ print("loads:", len(net.load))
 print("sgens (static generators, e.g. rooftop PV):", len(net.sgen))
 print("trafos:", len(net.trafo))
 
-# Run a steady-state AC power flow (Newton-Raphson) - same solver
-# you already used in Pandapower for your 6-bus project.
+# Steady-state AC power flow, Newton-Raphson (pandapower default).
 pp.runpp(net)
 
 print("\n=== Load flow converged? ===")
@@ -46,6 +45,6 @@ print(net.res_line.loading_percent.describe())
 print("\n=== Transformer loading (%) ===")
 print(net.res_trafo.loading_percent.describe())
 
-# Save the network + results so later phases can reload from a known point
+# Save network + results so the later phases start from the same state
 pp.to_json(net, "baseline_net.json")
 print("\nSaved baseline network + results to baseline_net.json")

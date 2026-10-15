@@ -9,16 +9,16 @@ Why this phase exists:
   and the worst case for a voltage violation (low load, high local PV
   generation, which also coincides with a higher upstream MV voltage) are
   DIFFERENT conditions. SimBench ships this network with exactly those
-  bounding scenarios pre-defined in net.loadcases - we just weren't using
-  them until now.
+  bounding scenarios pre-defined in net.loadcases, so this phase uses
+  them.
 
 The six SimBench loadcases and what each represents:
   hL   heavy Load               - peak demand, no renewable generation
   n1   (same scaling as hL)     - NOTE: SimBench's "n1" is meant to be run
                                    together with an N-1 topology contingency
-                                   (a line/switch outage). We are NOT
-                                   modeling a topology change here, so this
-                                   run is scaling-equivalent to hL and is
+                                   (a line/switch outage). No topology
+                                   change is modelled here, so this run
+                                   is scaling-equivalent to hL and is
                                    included for completeness only - it does
                                    not represent a true N-1 check.
   hW   heavy Wind                - peak load + peak wind (irrelevant here,

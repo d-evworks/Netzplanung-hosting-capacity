@@ -1,7 +1,7 @@
 """
 Phase 2 - Hosting capacity sweep.
 
-Question we're answering (the actual Netzplanung task):
+Question (the typical Netzplanung task):
   "If every household on this feeder installed rooftop PV of size X kWp,
    at what X does the feeder start violating its limits?"
 
@@ -13,8 +13,9 @@ where a limit is first crossed is the feeder's hosting capacity.
 import pandapower as pp
 import pandas as pd
 
-VOLTAGE_LIMIT_PU = 1.10      # general statutory ceiling - verify exact
-                              # VDE-AR-N 4105 allocation before final writeup
+VOLTAGE_LIMIT_PU = 1.10      # absolute upper limit (EN 50160 band).
+                              # The stricter German 3 % voltage-rise rule
+                              # (VDE-AR-N 4105) is checked in phase4b.
 LOADING_LIMIT_PCT = 100.0    # thermal limit for lines/transformer
 
 net_base = pp.from_json("baseline_net.json")

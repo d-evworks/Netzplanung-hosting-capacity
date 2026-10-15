@@ -6,6 +6,16 @@ what a targeted reinforcement buys you, and why a single-snapshot answer
 isn't the real answer. Built with [pandapower](https://www.pandapower.org)
 and the [SimBench](https://www.simbench.net) benchmark network.
 
+## Why I built it with open-source tools
+
+As a student I had no access to commercial grid software such as
+PowerFactory or PSS/E. So I set out to see how far the free tools get you
+for the studies a DSO planner actually runs. The answer: hosting capacity,
+reinforcement, load flow, short circuit to IEC 60909 and N-1 with
+restoration switching are all doable with pandapower and the open SimBench
+grids. Everything here runs on a laptop and every number can be reproduced
+from the scripts.
+
 ## The question
 
 "If every household on this feeder installed rooftop PV of size X kWp, at
@@ -46,15 +56,17 @@ options:
    in this network's standard type library) → capacity rises only to
    **13 kWp/household** (+18%).
 2. Add a second parallel circuit alongside the upgraded backbone → capacity
-   rises to **15 kWp/household**, but the bottleneck simply shifts to the
-   next unreinforced line segment further upstream.
+   rises to **15 kWp/household**. The overload then moves to the next
+   unreinforced section *further out* along the feeder (line 2→1, just
+   beyond the reinforced trunk), and the 400 kVA transformer is already at
+   97 % loading, so it would be the next limit right after.
 
-**Finding: reinforcing one segment of a radial trunk gives diminishing,
-cascading returns** — the constraint keeps moving upstream to the next
-weakest link rather than disappearing. A full fix would mean reinforcing
-the whole trunk from the transformer outward, not one segment at a time;
-that wasn't pursued further here, since the cascade pattern itself was the
-useful finding, not chasing an ever-larger reinforcement scope.
+**Finding: reinforcing one part of a radial trunk gives diminishing
+returns.** The constraint moves to the next weakest element instead of
+disappearing. The reinforced section already starts at the transformer, so
+a real fix would mean extending the reinforcement further down the feeder
+*and* planning a larger transformer (e.g. 630 kVA). I stopped here because
+this cascade was the main point of the phase.
 
 ![Phase 3 reinforcement comparison — before vs after](phase3_reinforcement_comparison.png)
 
@@ -70,16 +82,33 @@ peak generation + elevated upstream voltage) are different conditions:
 | hW | Peak load + high wind (no wind gen on this feeder) | 13 kWp/household | thermal |
 | hPV | Peak load + near-peak solar | 11 kWp/household | thermal |
 | lW | Light load + wind | 9 kWp/household | thermal |
-| **lPV** | **Light load + near-peak solar + elevated upstream voltage** | **8 kWp/household** | **thermal** |
+| **lPV** | **Light load + near-peak solar + elevated upstream voltage** | **8 kWp/household** | **thermal (3 % voltage rise equally tight, see 4b)** |
 
 **lPV is the scenario that actually matters** — it's the standard
 worst-case condition for hosting capacity studies, and it gives the lowest
-(most conservative, most defensible) number. Even here, thermal overload
-still trips before the voltage ceiling (voltage only reaches 1.10 pu around
-13 kWp on the same trajectory) — this specific feeder is thermally-, not
-voltage-, constrained across every scenario tested.
+(most conservative, most defensible) number. Against the absolute 1.10 pu
+ceiling, thermal overload trips first (1.10 pu is only reached at 14 kWp).
+But that is not the whole story for a German grid; see Phase 4b.
 
 ![Phase 4 scenario summary — hosting capacity by loadcase](phase4_scenario_summary.png)
+
+**Phase 4b — German 3 % voltage-rise rule** (`phase4b_vde4105_check.py`).
+The 1.10 pu ceiling is not what a German DSO checks first. For PV in LV
+grids, VDE-AR-N 4105 limits the voltage rise caused by generation to 3 %
+at every connection point. I re-ran the lPV case, compared every LV bus
+against the same case without the new PV, and took the worst bus:
+
+| kWp/household | Max voltage rise | Max line loading |
+|---|---|---|
+| 8 | 2.96 % | 95.8 % |
+| 9 | 3.31 % ❌ | 107.8 % ❌ |
+
+So under the German rule **voltage and thermal limits bind at the same
+point (8 kWp/household)**. The feeder is not just "thermally limited"; at
+8 kWp it has almost no margin left on either side. Fixing only the cable
+would immediately run into the voltage-rise limit, so measures like
+reactive power control of the inverters (cos φ(P)) would have to be part of
+the solution.
 
 ## Phase 5 - Medium-voltage grid study: load flow, short circuit, N-1
 
@@ -108,10 +137,14 @@ case (one line at 93 %); light load with peak PV pushes voltage up to
 
 **5b Short circuit to IEC 60909 (3-phase)**
 
-- Ik'' max 2.1 - 15.6 kA across the 20 kV buses, peak current ip up to 41 kA.
+- Ik'' max 2.1 - 15.6 kA across the 20 kV buses, peak current ip up to 41.2 kA.
 - Ik'' min 1.5 - 12.3 kA (used for protection pickup settings).
-- Fault level at the 20 kV busbar about 540 MVA, below the 16-20 kA rating
-  of standard 20 kV switchgear, so no equipment is over-stressed.
+- Highest fault level is at the 20 kV busbar: 15.6 kA (about 540 MVA).
+- Equipment check: this is fine for 20 kA switchgear (peak rating 50 kA).
+  For 16 kA switchgear it is **not** fine: Ik'' leaves only ~2.5 % margin
+  and ip = 41.2 kA exceeds its 40 kA peak withstand rating. In a real study
+  I would ask the TSO/DSO for the actual 110 kV short-circuit power,
+  because the result depends directly on that value.
 - Assumption: the SimBench file has no 110 kV short-circuit data, so a
   typical infeed of 5000 / 3000 MVA (max / min), R/X 0.1 was set, and
   converter-based generation contributes 1.2 x rated current.
@@ -143,27 +176,41 @@ Outputs: `phase5a_loadflow.csv`, `phase5b_short_circuit.csv`,
 
 ![Phase 5 MV summary — load flow, short circuit, N-1](phase5_mv_summary.png)
 
-## Headline result
+## Headline results
 
-**This feeder's defensible hosting capacity is 8 kWp/household rooftop PV,
-limited by thermal overload on its backbone trunk under minimum-load/
-peak-generation conditions — not the 11 kWp/household a single default
-snapshot would suggest.** A single conductor upgrade recovers some margin
-but the gain is limited by a cascading bottleneck effect further up the
-same trunk.
+- **LV feeder:** the defensible hosting capacity is **8 kWp/household**
+  (light load + peak PV), not the 11 kWp a single default snapshot
+  suggests. At that point both the backbone cable (96 %) and the German
+  3 % voltage-rise limit (2.96 %) are nearly used up.
+- **Reinforcement:** upgrading one trunk section only moves the bottleneck
+  further out; the transformer follows soon after.
+- **MV grid:** N-1 secure for 91 of 121 line outages at peak load. The weak
+  spots are the feeder head sections next to the substation, and the
+  short-circuit level calls for 20 kA switchgear.
 
 ## Limitations (explicitly out of scope here)
 
+- No reactive power control (cos φ(P)) or tap changer modelled yet, even
+  though Phase 4b shows voltage rise is just as tight as cable loading.
 - No N-1 contingency analysis on the LV feeder itself. (A true topology
   N-1 with restoration switching is now done at MV level in Phase 5.)
 - No full 8760-hour time series — six representative SimBench loadcases
   were used instead of hourly profiles.
 - No cost/economic comparison between reinforcement options.
-- No alternative mitigation strategies modeled (on-load tap changer /
-  voltage control, PV curtailment, smart inverter reactive power support)
-  — reinforcement (bigger cable / parallel line) was the only lever tested.
+- PV curtailment and other non-wire alternatives were not tested;
+  reinforcement (bigger cable / parallel line) was the only lever.
 - Reinforcement (Phase 3) and multi-scenario analysis (Phase 4) were run
   separately, not combined, to keep each result interpretable on its own.
+
+## What I want to do next
+
+- Add cos φ(P) reactive power control and a tap-changing transformer to
+  the LV case and see how much hosting capacity that recovers compared
+  with the cable upgrade.
+- Run a full-year time series with the SimBench profiles instead of six
+  snapshots.
+- Bring the MV grid into PyPSA (it can import pandapower networks) to try
+  optimisation-based reinforcement planning.
 
 ## Reproducing this
 
@@ -179,5 +226,6 @@ python3 plot_phase3_comparison.py   # -> phase3_reinforcement_comparison.png
 python3 phase3b_parallel_line.py    # -> hosting_capacity_sweep_phase3b_parallel.csv
 python3 phase4_multi_scenario.py    # -> per-loadcase CSVs + phase4_scenario_summary.csv
 python3 plot_phase4_summary.py      # -> phase4_scenario_summary.png
+python3 phase4b_vde4105_check.py    # -> phase4b_vde4105_lPV.csv
 python3 phase5_mv_loadflow_shortcircuit_n1.py  # -> phase5 CSVs + phase5_mv_summary.png
 ```

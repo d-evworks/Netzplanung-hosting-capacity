@@ -1,9 +1,9 @@
 """
 Phase 3 - Grid reinforcement.
 
-Question we're answering (the natural follow-up to Phase 2):
+Question (follow-up to Phase 2):
   "Phase 2 found the feeder's hosting capacity is limited by cable thermal
-   overload on the backbone trunk, at ~11 kWp/household. If we reinforce
+   overload on the backbone trunk, at ~11 kWp/household. If you reinforce
    that specific bottleneck - upgrade the trunk to a larger cable
    cross-section - how much more PV can the feeder then support, and what
    becomes the new binding constraint?"
@@ -22,7 +22,7 @@ Method:
      old ceiling no longer applies) on both the original and reinforced
      network for a clean before/after comparison.
 
-Judgment call, flagged for the write-up:
+Scope note:
   This reinforces only the specific overloaded lines (targeted
   reinforcement), not the whole feeder - this mirrors how a DSO would
   actually scope a reinforcement project (upgrade what's overloaded, not
